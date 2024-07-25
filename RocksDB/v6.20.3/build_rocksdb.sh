@@ -288,6 +288,7 @@ case "$DISTRO" in
 
 "rhel-8.2" | "rhel-8.4" | "rhel-8.5" | "rhel-8.6")
         printf -- "Installing %s %s for %s \n" "$PACKAGE_NAME" "$PACKAGE_VERSION" "$DISTRO" |& tee -a "${LOG_FILE}"
+        sudo yum install yum
         sudo yum install -y git patch snappy-devel zlib-devel bzip2 bzip2-devel lz4-devel libzstd-devel libasan gcc-c++ binutils make python3 perl cmake curl wget libarchive diffutils which openssl openssl-devel gzip file procps |& tee -a "${LOG_FILE}"
         configureAndInstall |& tee -a "${LOG_FILE}"
         ;;
